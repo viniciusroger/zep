@@ -98,15 +98,6 @@ jobs:
         genhtml coverage.info
         bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.info
 
-    - name: Archive Coverage HTML
-      uses: actions/upload-artifact@v2
-      if: matrix.build_type == 'Coverage'
-      with:
-          name: Coverag_Report
-          path: |
-            ${{github.workspace}}/build/**/*.html
-            ${{github.workspace}}/build/**/*.css
-
     - name: Archive Binary
       uses: actions/download-artifact@v4.1.8
       with:
